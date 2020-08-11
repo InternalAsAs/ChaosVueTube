@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1 class="title">Hello YouTube</h1>
-    <a v-for="n of 10000" :key="n" href="https://www.youtube.com/watch?v=PPnbEiXSYM8">
+    <a v-for="n of 1000" :key="n" href="https://www.youtube.com/watch?v=PPnbEiXSYM8">
       <img class="logo" alt="YouTube logo" src="../assets/yt_logo_rgb_dark.png">
     </a>
   </div>
