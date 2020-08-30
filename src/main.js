@@ -3,8 +3,6 @@ import App from './App.vue'
 import router from './router'
 
 Vue.config.productionTip = false
-// Google Adsense 用
-// Vue.component('adsense', VueAdsense)
 
 new Vue({
   router,
