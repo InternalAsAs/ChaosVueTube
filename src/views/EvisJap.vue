@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="evisjap">
     <header v-for="m of tuber" :key="m.id">
         <a :href=m.movie_url target="_blank">
             <img id="header-logo" alt="ヘッダーロゴ" :src=m.pic_url>
