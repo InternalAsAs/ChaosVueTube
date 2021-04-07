@@ -10,7 +10,7 @@
             <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
               <div v-for="m of results" :key="m.id" class="card-seed" style="margin: 10px;">
                   <div class="card-wrapper">
-                    <router-link :to=m.path>
+                    <router-link :to=m.path class="link">
                       <div class="card-front">
                           <div class="card-links">
                             <span class="fa fa-instagram"></span>
@@ -171,5 +171,11 @@ export default {
 .Loading{
   font-size: xx-large;
   color: #fff;
+}
+
+.link{
+  width: 100%;
+  height: 100%;
+  display: inline-block;
 }
 </style>
