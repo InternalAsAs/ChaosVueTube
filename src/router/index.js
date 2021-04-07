@@ -34,6 +34,11 @@ const routes = [
     path: '/susurutv',
     name: 'SUSURU TV',
     component: () => import('../views/SUSURU TV.vue')
+  },
+  {
+    path: '/egachannel',
+    name: 'EgaChannel',
+    component: () => import('../views/EgaChannel.vue')
   }
 ]
 
