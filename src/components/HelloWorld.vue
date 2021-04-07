@@ -10,7 +10,7 @@
             <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
               <div v-for="m of results" :key="m.id" class="card-seed" style="margin: 10px;">
                   <div class="card-wrapper">
-                    <a style="width: 100%; height: 100%;" :href=m.path>
+                    <router-link :to=m.path>
                       <div class="card-front">
                           <div class="card-links">
                             <span class="fa fa-instagram"></span>
@@ -26,7 +26,7 @@
                             </div>
                           </div>
                       </div>
-                    </a>
+                    </router-link>
                 </div>
               </div>
           </div>
