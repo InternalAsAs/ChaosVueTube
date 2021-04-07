@@ -11,24 +11,24 @@ const routes = [
     component: Home
   },
   {
-    path: '/evisjap/',
+    path: '/evisjap',
     name: 'EvisJap',
-    component: () => import(/* webpackChunkName: "about" */ '../views/EvisJap.vue')
+    component: () => import('../views/EvisJap.vue')
   },
   {
-    path: '/comdot/',
+    path: '/comdot',
     name: 'ComDot',
-    component: () => import(/* webpackChunkName: "about" */ '../views/ComDot.vue')
+    component: () => import('../views/ComDot.vue')
   },
   {
-    path: '/tokaionair/',
+    path: '/tokaionair',
     name: 'TokaiOnAir',
-    component: () => import(/* webpackChunkName: "about" */ '../views/TokaiOnAir.vue')
+    component: () => import('../views/TokaiOnAir.vue')
   },
   {
-    path: '/hikakintv/',
+    path: '/hikakintv',
     name: 'HikakinTV',
-    component: () => import(/* webpackChunkName: "about" */ '../views/HikakinTV.vue')
+    component: () => import('../views/HikakinTV.vue')
   }
 ]
 
