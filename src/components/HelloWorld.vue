@@ -30,6 +30,7 @@
                 </div>
               </div>
           </div>
+        <p v-show="show" class="Loading">Loading...</p>
     </div>
 </template>
 
@@ -38,6 +39,7 @@ export default {
   name: 'HelloWorld',
   data: () => ({
     results: [],
+    show: true,
     apiUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber'
   }),
   created () {
@@ -46,6 +48,7 @@ export default {
         item.id = Number(item.id)
         this.results.push(item)
       })
+      this.show = false
     })
   }
 }
@@ -53,7 +56,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 .card{
   width:100%;
   height:100%;
@@ -164,5 +166,10 @@ export default {
 
 .user-info span>b{
   display:block;
+}
+
+.Loading{
+  font-size: xx-large;
+  color: #fff;
 }
 </style>
