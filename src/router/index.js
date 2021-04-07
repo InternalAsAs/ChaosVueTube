@@ -29,6 +29,11 @@ const routes = [
     path: '/hikakintv',
     name: 'HikakinTV',
     component: () => import('../views/HikakinTV.vue')
+  },
+  {
+    path: '/susurutv',
+    name: 'SUSURU TV',
+    component: () => import('../views/SUSURU TV.vue')
   }
 ]
 
