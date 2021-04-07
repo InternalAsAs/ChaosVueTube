@@ -1,28 +1,168 @@
 <template>
-  <div class="hello">
-    <h1 class="title">Hello YouTube</h1>
-    <a v-for="n of 1000" :key="n" href="https://www.youtube.com/watch?v=PPnbEiXSYM8">
-      <img class="logo" alt="YouTube logo" src="../assets/yt_logo_rgb_dark.png">
-    </a>
-  </div>
+    <div style="text-align: center;">
+        <h1 style="color: white;">カオスティック
+            <a href="https://www.youtube.com/" target="_blank">
+                <img src="../assets/yt_logo_rgb_dark.png" width="100px" height="auto">
+            </a>
+        </h1>
+        <p style="color: white; font-size: smaller;">ようこそ、カオスティックYouTubeへ！<br>チャンネル内平均再生回数と動画再生回数を相関させたサムネカオスマップを作成しています！</p>
+        <p style="color: white; margin-bottom: 0px;" ><strong>↓カードをクリック♪</strong></p>
+            <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
+              <div v-for="m of results" :key="m.id" class="card-seed" style="margin: 10px;">
+                  <div class="card-wrapper">
+                    <a style="width: 100%; height: 100%;" :href=m.path>
+                      <div class="card-front">
+                          <div class="card-links">
+                            <span class="fa fa-instagram"></span>
+                            <span class="fa fa-link"></span>
+                          </div>
+                          <div class="card-user">
+                            <img class="card" v-bind:src="m.pic_url" alt="HikakinTV"/>
+                            <span>{{ m.name }}</span>
+                            <div class="user-info">
+                              <span><b>{{ m.regist_count }}万人</b>チャンネル<br>登録者数</span>
+                              <span><b>{{ m.subscribers }}本</b>動画投稿数</span>
+                              <span><b>{{ m.average}}万</b>平均再生回数</span>
+                            </div>
+                          </div>
+                      </div>
+                    </a>
+                </div>
+              </div>
+          </div>
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld'
+  name: 'HelloWorld',
+  data: () => ({
+    results: [],
+    apiUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber'
+  }),
+  created () {
+    this.axios.get(this.apiUrl).then(response => {
+      response.data.forEach(item => {
+        item.id = Number(item.id)
+        this.results.push(item)
+      })
+    })
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.title {
-  color: white;
+
+.card{
+  width:100%;
+  height:100%;
+  display:block;
 }
-.hello {
-  background-color: black;
+*::selection {
+  background: transparent;
 }
-.logo {
-  widows: 24px;
-  height: 10px;
+*::-moz-selection {
+  background: transparent;
+}
+
+/* Pen Style  */
+
+.container{
+  padding:15px;
+  perspective:700px;
+  -webkit-perspective:700px;
+}
+
+.card-wrapper{
+  position:relative;
+  width:250px;
+  height:250px;
+  margin:0px auto 25px;
+  transform-style:preserve-3d;
+  transition:transform 0.3s cubic-bezier(0,1.06,.75,1.31);
+}
+
+.card-front,
+.card-back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:0.55em;
+}
+
+.card-front{
+  background: #FF8008;
+  background: -webkit-linear-gradient(to right, #FFC837, #FF8008);
+  background: linear-gradient(to right, #FFC837, #FF8008);
+}
+
+.card-front span{
+  transition:700ms ease-in;
+}
+
+.card-back{
+  background:#fff;
+  box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+  transform:translateZ(0);
+  z-index:-1;
+}
+
+.card-links{
+  padding:15px;
+  transition: all 700ms ease-in;
+}
+
+.card-links span{
+  color:#fff;
+  font-size:22px;
+}
+
+.card-links span:last-child{
+  float:right;
+}
+
+.card-user{
+  transform-style:preserve-3d;
+  transition: all 700ms cubic-bezier(0,1.06,.75,1.31);
+}
+
+.card-user img{
+  width:75px;
+  height:75px;
+  border-radius:50%;
+  margin: 0 auto;
+  border:2px solid #fff;
+  transition: all 700ms ease-in;
+}
+
+.card-user span{
+  font-size:16px;
+  text-align:center;
+  display:block;
+  margin-top:10px;
+  color:black;
+}
+
+.card-user span>i{
+  font-family: 'Pacifico', cursive;
+  display:block;
+  font-size:8px;
+}
+
+/* In card-user div  */
+.user-info{
+  display:flex;
+  flex-wrap:nowrap;
+  padding:10px 5px;
+}
+
+.user-info span{
+  flex:1;
+  font-size:12px;
+}
+
+.user-info span>b{
+  display:block;
 }
 </style>
