@@ -17,7 +17,7 @@ export default {
     path: String,
     show: true
   }),
-  created () {
+  mounted () {
     setTimeout(() => {
       this.show = false
     }, 1000)
