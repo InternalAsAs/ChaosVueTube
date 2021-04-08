@@ -6,11 +6,11 @@
             </a>
         </h1>
         <p style="color: white; font-size: smaller;">ようこそ、カオスティックYouTubeへ！<br>チャンネル内平均再生回数と動画再生回数を相関させたサムネカオスマップを作成しています！</p>
-        <p v-show="!show" style="color: white; margin-bottom: 0px;" ><strong>↓カードをクリック♪</strong></p>
+        <p style="color: white; margin-bottom: 0px;" ><strong>↓カードをクリック♪</strong></p>
             <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
               <div v-for="m of results" :key="m.id" class="card-seed" style="margin: 10px;">
                   <div class="card-wrapper">
-                    <router-link :to="m.path" class="link">
+                    <router-link :to="m.path" class="link" v-on:click="load = true">
                       <div class="card-front">
                           <div class="card-links">
                             <span class="fa fa-instagram"></span>
