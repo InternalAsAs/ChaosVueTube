@@ -26,7 +26,7 @@ export default {
     tuberUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber'
   }),
   created () {
-    this.axios.get(this.tuberUrl + '?search={"id": "3"}').then(response => {
+    this.axios.get(this.tuberUrl + '?search={"path": "evisjap"}').then(response => {
       response.data.forEach(item => {
         item.id = Number(item.id)
         this.tuber.push(item)
