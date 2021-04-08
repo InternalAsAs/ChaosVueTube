@@ -10,14 +10,14 @@
             <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
               <div v-for="m of results" :key="m.id" class="card-seed" style="margin: 10px;">
                   <div class="card-wrapper">
-                    <router-link :to=m.path class="link">
+                    <router-link :to="m.path" class="link">
                       <div class="card-front">
                           <div class="card-links">
                             <span class="fa fa-instagram"></span>
                             <span class="fa fa-link"></span>
                           </div>
                           <div class="card-user">
-                            <img class="card" v-bind:src="m.pic_url" alt="HikakinTV"/>
+                            <img class="card" v-bind:src="m.pic_url" :alt="m.name"/>
                             <span>{{ m.name }}</span>
                             <div class="user-info">
                               <span><b>{{ m.regist_count }}万人</b>チャンネル<br>登録者数</span>
@@ -46,6 +46,7 @@ export default {
     this.axios.get(this.apiUrl).then(response => {
       response.data.forEach(item => {
         item.id = Number(item.id)
+        item.path = item.path + '?path=' + item.path
         this.results.push(item)
       })
       this.show = false
