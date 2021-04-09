@@ -42,7 +42,7 @@ export default {
     show: true,
     apiUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber'
   }),
-  created () {
+  mounted () {
     this.axios.get(this.apiUrl).then(response => {
       response.data.forEach(item => {
         item.id = Number(item.id)
