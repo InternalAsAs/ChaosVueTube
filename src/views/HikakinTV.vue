@@ -24,7 +24,7 @@ export default {
   components: {
     Header,
     Loading,
-    HikakinMain: () => import('../components/HikakinMain')
+    HikakinMain: () => import('../components/Body/HikakinMain')
   }
 }
 </script>
