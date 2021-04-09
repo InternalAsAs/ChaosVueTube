@@ -2,14 +2,13 @@
 <div>
   <Loading v-if="show"/>
   <Header :path="this.$route.query.path"/>
-  <HikakinMain v-if="!show"/>
+  <HikakinMain/>
 </div>
 </template>
 
 <script>
 import Header from '../components/Header'
 import Loading from '../components/Loading'
-import HikakinMain from '../components/HikakinMain'
 
 export default {
   name: 'HikakinTV',
@@ -25,12 +24,8 @@ export default {
   components: {
     Header,
     Loading,
-    HikakinMain
-    // Defer
+    HikakinMain: () => import('../components/HikakinMain')
   }
-  // mixins: [
-  //  Defer()
-  // ]
 }
 </script>
 
