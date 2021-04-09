@@ -19,7 +19,7 @@ export default {
   mounted () {
     setTimeout(() => {
       this.show = false
-    }, 1000)
+    }, 2000)
   },
   components: {
     Header,
