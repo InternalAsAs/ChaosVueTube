@@ -10,7 +10,7 @@
                 <img id="tube-logo" src="../assets/yt_logo_rgb_dark.png">
             </a>
         </h1>
-        <p id="sub-title">{{ m.name }}カオスマップ！サムネは投稿日順で、再生数が多いほど大きく表示されます。</p>
+        <p id="sub-title">{{ m.name }}！サムネは投稿日順で、再生数が多いほど大きく表示されます。</p>
     </header>
   </div>
 </template>
