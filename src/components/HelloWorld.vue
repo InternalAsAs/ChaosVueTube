@@ -1,6 +1,7 @@
 <template>
     <div style="text-align: center;">
-        <h1 style="color: white;">カオスティック
+        <h1 style="color: white;">
+            <a id="title-char" href="/">カオスティック</a>
             <a href="https://www.youtube.com/" target="_blank">
                 <img src="../assets/yt_logo_rgb_dark.png" width="100px" height="auto">
             </a>
@@ -178,5 +179,10 @@ export default {
   width: 100%;
   height: 100%;
   display: inline-block;
+}
+
+#title-char{
+    color: white;
+    text-decoration: none;
 }
 </style>
