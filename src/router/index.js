@@ -39,6 +39,26 @@ const routes = [
     path: '/egachannel',
     name: 'EgaChannel',
     component: () => import('../views/EgaChannel.vue')
+  },
+  {
+    path: '/kimagurecook',
+    name: 'KimagureCook',
+    component: () => import('../views/KimagureCook.vue')
+  },
+  {
+    path: '/ouchimentv',
+    name: 'OuchiMenTV',
+    component: () => import('../views/OuchiMenTV.vue')
+  },
+  {
+    path: '/raphael',
+    name: 'Raphael',
+    component: () => import('../views/Raphael.vue')
+  },
+  {
+    path: '/kenki',
+    name: 'Kenki',
+    component: () => import('../views/Kenki.vue')
   }
 ]
 
