@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import Header from '../components/Header'
 import Loading from '../components/Loading'
 
 export default {
@@ -22,8 +21,8 @@ export default {
     }, 2000)
   },
   components: {
-    Header,
     Loading,
+    Header: () => import('../components/Header'),
     TokaiOnAirMain: () => import('../components/Body/TokaiOnAirMain')
   }
 }
