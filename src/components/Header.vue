@@ -11,6 +11,7 @@
             </a>
         </h1>
         <p id="sub-title">{{ m.name }}！サムネは投稿日順で、再生数が多いほど大きく表示されます。</p>
+        <p style="color: white;" ><strong>サムネクリックで動画へジャンプ♪</strong></p>
     </header>
   </div>
 </template>
