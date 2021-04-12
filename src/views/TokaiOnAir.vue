@@ -8,6 +8,7 @@
 
 <script>
 import Loading from '../components/Loading'
+import Header from '../components/Header'
 
 export default {
   name: 'TokaiOnAir',
@@ -22,7 +23,7 @@ export default {
   },
   components: {
     Loading,
-    Header: () => import('../components/Header'),
+    Header,
     TokaiOnAirMain: () => import('../components/Body/TokaiOnAirMain')
   }
 }

@@ -59,6 +59,11 @@ const routes = [
     path: '/kenki',
     name: 'Kenki',
     component: () => import('../views/Kenki.vue')
+  },
+  {
+    path: '/rirohitori',
+    name: 'RiroHiitori',
+    component: () => import('../views/RiroHitori.vue')
   }
 ]
 

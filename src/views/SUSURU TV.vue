@@ -22,8 +22,8 @@ export default {
     }, 2000)
   },
   components: {
-    Header,
     Loading,
+    Header,
     SUSURUTVMain: () => import('../components/Body/SUSURU TVMain')
   }
 }

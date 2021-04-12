@@ -22,8 +22,8 @@ export default {
     }, 2000)
   },
   components: {
-    Header,
     Loading,
+    Header,
     OuchiMenTVMain: () => import('../components/Body/OuchiMenTVMain')
   }
 }

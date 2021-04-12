@@ -22,8 +22,8 @@ export default {
     }, 2000)
   },
   components: {
-    Header,
     Loading,
+    Header,
     KenkiMain: () => import('../components/Body/KenkiMain')
   }
 }

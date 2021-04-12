@@ -22,8 +22,8 @@ export default {
     }, 2000)
   },
   components: {
-    Header,
     Loading,
+    Header,
     RaphaelMain: () => import('../components/Body/RaphaelMain')
   }
 }

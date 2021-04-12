@@ -2,7 +2,7 @@
 <div>
   <Loading v-if="show"/>
   <Header :path="this.$route.query.path"/>
-  <EvisJapMain/>
+  <RiroHitoriMain/>
 </div>
 </template>
 
@@ -11,7 +11,7 @@ import Header from '../components/Header'
 import Loading from '../components/Loading'
 
 export default {
-  name: 'EvisJap',
+  name: 'RiroHitori',
   data: () => ({
     path: String,
     show: true
@@ -24,7 +24,7 @@ export default {
   components: {
     Loading,
     Header,
-    EvisJapMain: () => import('../components/Body/EvisJapMain')
+    RiroHitoriMain: () => import('../components/Body/RiroHitoriMain')
   }
 }
 </script>
