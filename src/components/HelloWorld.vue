@@ -1,15 +1,17 @@
 <template>
     <div style="text-align: center;">
-        <h1 style="color: white;">
+      <Header>
+        <h1>
             <a id="title-char" href="/">カオスティック</a>
             <a href="https://www.youtube.com/" target="_blank">
                 <img src="../assets/yt_logo_rgb_dark.png" width="100px" height="auto">
             </a>
         </h1>
+      </Header>
         <p style="color: white; font-size: smaller;">Welcome to chaostic YouTube！<br>チャンネル内平均再生回数と動画再生回数を相関させてサムネ敷き詰め画を生成しています！</p>
-        <p v-show="!show" style="color: white; margin-bottom: 0px;" ><strong>↓カードをクリック♪</strong></p>
+        <input id="search" type="text" placeholder="search" v-model="keyword">
             <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
-              <div v-for="m of results" :key="m.id" class="card-seed" style="margin: 10px;">
+              <div v-for="m of filteredResults" :key="m.id" class="card-seed" style="margin: 10px;">
                   <div class="card-wrapper">
                     <router-link :to="m.path" class="link" v-on:click="load = true">
                       <div class="card-front">
@@ -39,10 +41,24 @@
 export default {
   name: 'HelloWorld',
   data: () => ({
+    keyword: '',
     results: [],
     show: true,
     apiUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber'
   }),
+  computed: {
+    filteredResults: function () {
+      var apiResults = []
+      for (var i in this.results) {
+        var apiResult = this.results[i]
+        if (apiResult.name.indexOf(this.keyword) !== -1 ||
+            apiResult.path.indexOf(this.keyword.toLowerCase()) !== -1) {
+          apiResults.push(apiResult)
+        }
+      }
+      return apiResults
+    }
+  },
   mounted () {
     this.axios.get(this.apiUrl).then(response => {
       response.data.forEach(item => {
@@ -58,6 +74,26 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+header h1 {
+  margin-bottom: 0px;
+}
+#search {
+  position: relative;
+  width: 70%;
+  line-height: 26px;
+  font-size: 15px;
+  height: 26px;
+  background:url("../assets/icon_search.svg") no-repeat 99% center;
+  background-color: #444;
+  background-size: 25px 25px;
+  border: none;
+  border-bottom:2px solid #666;
+  transition: all 0.5s;
+  letter-spacing: 0.05em;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+}
 .card{
   width:100%;
   height:100%;
