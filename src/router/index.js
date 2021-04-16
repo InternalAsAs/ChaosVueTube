@@ -53,10 +53,6 @@ const routes = [
   {
     path: '/rirohitori',
     component: () => import('../views/RiroHitori.vue')
-  },
-  {
-    path: '/pewdiepie',
-    component: () => import('../views/PewDiePie.vue')
   }
 ]
 
