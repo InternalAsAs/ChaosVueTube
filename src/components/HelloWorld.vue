@@ -9,9 +9,9 @@
         </h1>
       </Header>
         <p style="color: white; font-size: smaller;">Welcome to chaostic YouTube！<br>チャンネル内平均再生回数と動画再生回数を相関させてサムネ敷き詰め画を生成しています！</p>
-        <input id="search" type="text" placeholder="search" v-model="keyword">
+        <input id="search" type="text" placeholder="search" v-model="keyword" v-on:keyup.enter="filteredResults">
             <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
-              <div v-for="m of filteredResults" :key="m.id" class="card-seed" style="margin: 10px;">
+              <div v-for="m of searchresults" :key="m.id" class="card-seed" style="margin: 10px;">
                   <div class="card-wrapper">
                     <router-link :to="m.path" class="link" v-on:click="load = true">
                       <div class="card-front">
@@ -43,10 +43,11 @@ export default {
   data: () => ({
     keyword: '',
     results: [],
+    searchresults: [],
     show: true,
     apiUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber'
   }),
-  computed: {
+  methods: {
     filteredResults: function () {
       var apiResults = []
       for (var i in this.results) {
@@ -56,6 +57,7 @@ export default {
           apiResults.push(apiResult)
         }
       }
+      this.searchresults = apiResults
       return apiResults
     }
   },
@@ -66,6 +68,7 @@ export default {
         item.path = item.path + '?path=' + item.path
         this.results.push(item)
       })
+      this.searchresults = this.results
       this.show = false
     })
   }
