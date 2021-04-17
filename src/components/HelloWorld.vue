@@ -9,7 +9,7 @@
         </h1>
       </Header>
         <p style="color: white; font-size: smaller;">Welcome to chaostic YouTube！<br>チャンネル内平均再生回数と動画再生回数を相関させてサムネ敷き詰め画を生成しています！</p>
-        <input id="search" type="text" placeholder="search" v-model="keyword" v-on:keyup.enter="filteredResults">
+        <input id="search" type="text" placeholder="search" v-model="keyword" @click="filteredResults">
             <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
               <div v-for="m of searchresults" :key="m.id" class="card-seed" style="margin: 10px;">
                   <div class="card-wrapper">
@@ -58,7 +58,6 @@ export default {
         }
       }
       this.searchresults = apiResults
-      this.blur()
     }
   },
   mounted () {
