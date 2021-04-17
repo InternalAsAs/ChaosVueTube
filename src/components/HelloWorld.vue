@@ -58,7 +58,7 @@ export default {
         }
       }
       this.searchresults = apiResults
-      return true
+      this.blur()
     }
   },
   mounted () {
