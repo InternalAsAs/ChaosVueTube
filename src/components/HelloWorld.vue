@@ -107,6 +107,8 @@ header h1 {
   background-color: #444;
   border: none;
   border-bottom:2px solid #666;
+  transition: all 0.5s;
+  letter-spacing: 0.05em;
   outline: none;
   cursor: pointer;
   vertical-align: middle;
