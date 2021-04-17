@@ -79,13 +79,13 @@ header h1 {
 }
 #search {
   position: relative;
-  width: 70%;
+  width: 60%;
   line-height: 26px;
   font-size: 15px;
   height: 26px;
-  background:url("../assets/icon_search.svg") no-repeat 99% center;
+  background:url("../assets/icon_search.svg") no-repeat 5px center;
   background-color: #444;
-  background-size: 25px 25px;
+  background-size: 20px 20px;
   border: none;
   border-bottom:2px solid #666;
   transition: all 0.5s;
@@ -93,6 +93,7 @@ header h1 {
   outline: none;
   cursor: pointer;
   color: #fff;
+  padding: 0px 35px 0px 35px;
 }
 .card{
   width:100%;
