@@ -58,7 +58,7 @@ export default {
         }
       }
       this.searchresults = apiResults
-      return apiResults
+      return true
     }
   },
   mounted () {
