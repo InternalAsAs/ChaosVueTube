@@ -93,7 +93,7 @@ header h1 {
   outline: none;
   cursor: pointer;
   color: #fff;
-  padding: 0px 35px 0px 35px;
+  padding: 0px 0px 0px 35px;
 }
 .card{
   width:100%;
