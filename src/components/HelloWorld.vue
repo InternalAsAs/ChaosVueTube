@@ -10,6 +10,7 @@
       </Header>
         <p style="color: white; font-size: smaller;">Welcome to chaostic YouTube！<br>チャンネル内平均再生回数と動画再生回数を相関させてサムネ敷き詰め画を生成しています！</p>
         <input id="search" type="text" placeholder="search" v-model="keyword" @click="filteredResults">
+        <button height="20px"></button>
             <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
               <div v-for="m of searchresults" :key="m.id" class="card-seed" style="margin: 10px;">
                   <div class="card-wrapper">
