@@ -9,8 +9,8 @@
         </h1>
       </Header>
         <p style="color: white; font-size: smaller;">Welcome to chaostic YouTube！<br>チャンネル内平均再生回数と動画再生回数を相関させてサムネ敷き詰め画を生成しています！</p>
-        <input id="search" type="text" placeholder="search" v-model="keyword" v-on:keyup.enter="onenter">
-        <button id="search-img" ref="searchimg" @click="filteredResults"></button>
+        <input id="search" type="text" placeholder="search" v-model="keyword" @click="filteredResults">
+        <img id="search-img" src="../assets/icon_search.svg" alt="">
             <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
               <div v-for="m of searchresults" :key="m.id" class="card-seed" style="margin: 10px;">
                   <div class="card-wrapper">
@@ -59,11 +59,7 @@ export default {
         }
       }
       this.searchresults = apiResults
-    },
-    onenter: function () {
-      this.$refs.searchimg.click()
     }
-
   },
   mounted () {
     this.axios.get(this.apiUrl).then(response => {
@@ -91,6 +87,7 @@ header h1 {
   font-size: 15px;
   height: 26px;
   background-color: #444;
+  background-size: 20px 20px;
   border: none;
   border-bottom:2px solid #666;
   transition: all 0.5s;
@@ -98,21 +95,7 @@ header h1 {
   outline: none;
   cursor: pointer;
   color: #fff;
-}
-#search-img {
-  background: url('../assets/icon_search.svg') no-repeat center;
-  position: relative;
-  width: 25px;
-  height: 30px;
-  background-color: #444;
-  border: none;
-  border-bottom:2px solid #666;
-  transition: all 0.5s;
-  letter-spacing: 0.05em;
-  outline: none;
-  cursor: pointer;
-  vertical-align: middle;
-  background-size: 15px 15px;
+  padding: 0px 35px 0px 35px;
 }
 .card{
   width:100%;
