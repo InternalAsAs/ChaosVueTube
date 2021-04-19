@@ -24,7 +24,7 @@ export default {
   components: {
     Loading,
     Header,
-    TokaiOnAirMain: () => import('../components/Body/TokaiOnAirMain')
+    TokaiOnAirMain: () => import('../components/Body/tokaionairmain')
   }
 }
 </script>

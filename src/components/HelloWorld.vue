@@ -11,8 +11,8 @@
         <p style="color: white; font-size: smaller;">Welcome to chaostic YouTube！<br>チャンネル内平均再生回数と動画再生回数を相関させてサムネ敷き詰め画を生成しています！</p>
         <input id="search" type="text" placeholder="search" v-model="keyword" v-on:keyup.enter="submitText">
             <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
-              <div v-for="m of filteredResults" :key="m.id" class="card-seed" style="margin: 10px;">
-                  <div class="card-wrapper">
+              <div v-for="m of filteredResults" :key="m.id" class="card-seed">
+                  <div class="card-wrapper" v-if="m.open == 'TRUE'" style="margin: 10px;">
                     <router-link :to="m.path" class="link" v-on:click="load = true">
                       <div class="card-front">
                           <div class="card-links">
