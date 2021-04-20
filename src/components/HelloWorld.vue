@@ -13,7 +13,7 @@
             <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
               <div v-for="m of filteredResults" :key="m.id" class="card-seed">
                   <div class="card-wrapper" v-if="m.open == 'TRUE'" style="margin: 10px;">
-                    <router-link :to="m.path" class="link" v-on:click="load = true">
+                    <router-link :to="m.path + '?path=' + m.path" class="link">
                       <div class="card-front">
                           <div class="card-links">
                             <span class="fa fa-instagram"></span>
@@ -43,6 +43,8 @@ export default {
   data: () => ({
     keyword: '',
     results: [],
+    routes: [],
+    path: '',
     show: true,
     apiUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber'
   }),
@@ -62,8 +64,11 @@ export default {
   mounted () {
     this.axios.get(this.apiUrl).then(response => {
       response.data.forEach(item => {
-        item.id = Number(item.id)
-        item.path = item.path + '?path=' + item.path
+        this.routes.push({
+          path: '/' + item.path,
+          component: () => import('@/views/' + item.path + '.vue')
+        })
+        this.$router.addRoutes(this.routes)
         this.results.push(item)
       })
       this.show = false

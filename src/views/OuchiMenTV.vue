@@ -11,7 +11,7 @@ import Header from '../components/Header'
 import Loading from '../components/Loading'
 
 export default {
-  name: 'OuchiMenTV',
+  name: 'ouchimentv',
   data: () => ({
     path: String,
     show: true

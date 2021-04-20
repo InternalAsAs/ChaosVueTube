@@ -11,7 +11,7 @@ import Loading from '../components/Loading'
 import Header from '../components/Header'
 
 export default {
-  name: 'TokaiOnAir',
+  name: 'tokaionair',
   data: () => ({
     path: String,
     show: true
