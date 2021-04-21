@@ -12,7 +12,7 @@
         <input id="search" type="text" placeholder="search" v-model="keyword" v-on:keyup.enter="submitText">
             <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
               <div v-for="m of filteredResults" :key="m.id" class="card-seed">
-                  <div class="card-wrapper" v-if="m.open === 'TRUE'" style="margin: 10px;">
+                  <div class="card-wrapper" v-if="m.open == 'TRUE'" style="margin: 10px;">
                     <router-link :to="m.path + '?path=' + m.path" class="link">
                       <div class="card-front">
                           <div class="card-links">
@@ -53,17 +53,15 @@ export default {
       var apiResults = []
       for (var i in this.results) {
         var apiResult = this.results[i]
-        if (this.results[i].open === 'TRUE') {
-          if (apiResult.name.indexOf(this.keyword) !== -1 ||
-              apiResult.path.indexOf(this.keyword.toLowerCase()) !== -1) {
-            apiResults.push(apiResult)
-          }
+        if (apiResult.name.indexOf(this.keyword) !== -1 ||
+            apiResult.path.indexOf(this.keyword.toLowerCase()) !== -1) {
+          apiResults.push(apiResult)
         }
       }
       return apiResults
     }
   },
-  created () {
+  mounted () {
     this.axios.get(this.apiUrl).then(response => {
       response.data.forEach(item => {
         this.routes.push({
