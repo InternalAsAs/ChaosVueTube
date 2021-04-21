@@ -12,7 +12,7 @@
         <input id="search" type="text" placeholder="search" v-model="keyword" v-on:keyup.enter="submitText">
             <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
               <div v-for="m of filteredResults" :key="m.id" class="card-seed">
-                  <div class="card-wrapper" v-if="m.open == 'TRUE'" style="margin: 10px;">
+                  <div class="card-wrapper" v-if="m.open === 'TRUE'" style="margin: 10px;">
                     <router-link :to="m.path + '?path=' + m.path" class="link">
                       <div class="card-front">
                           <div class="card-links">
@@ -46,14 +46,14 @@ export default {
     routes: [],
     path: '',
     show: true,
-    apiUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber/'
+    apiUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber'
   }),
   computed: {
     filteredResults: function () {
       var apiResults = []
       for (var i in this.results) {
         var apiResult = this.results[i]
-        if (this.results[i].name !== '' && this.results[i].path !== '') {
+        if (this.results[i].open === 'TRUE') {
           if (apiResult.name.indexOf(this.keyword) !== -1 ||
               apiResult.path.indexOf(this.keyword.toLowerCase()) !== -1) {
             apiResults.push(apiResult)
@@ -70,7 +70,7 @@ export default {
           path: '/' + item.path,
           component: () => import('@/views/' + item.path + '.vue')
         })
-         this.$router.addRoutes(this.routes)
+        this.$router.addRoutes(this.routes)
         this.results.push(item)
       })
       this.show = false
