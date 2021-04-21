@@ -61,7 +61,7 @@ export default {
       return apiResults
     }
   },
-  mounted () {
+  created () {
     this.axios.get(this.apiUrl).then(response => {
       response.data.forEach(item => {
         if (item.open === 'TRUE') {
