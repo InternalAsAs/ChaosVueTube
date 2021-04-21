@@ -53,7 +53,7 @@ export default {
       var apiResults = []
       for (var i in this.results) {
         var apiResult = this.results[i]
-        if (apiResult.name !== '' && apiResults.path !== '') {
+        if (this.results[i].name !== '' && this.results[i].path !== '') {
           if (apiResult.name.indexOf(this.keyword) !== -1 ||
               apiResult.path.indexOf(this.keyword.toLowerCase()) !== -1) {
             apiResults.push(apiResult)
@@ -66,14 +66,12 @@ export default {
   created () {
     this.axios.get(this.apiUrl).then(response => {
       response.data.forEach(item => {
-        if (item.open === 'TRUE') {
-          this.routes.push({
-            path: '/' + item.path,
-            component: () => import('@/views/' + item.path + '.vue')
-          })
-          this.$router.addRoutes(this.routes)
-          this.results.push(item)
-        }
+        this.routes.push({
+          path: '/' + item.path,
+          component: () => import('@/views/' + item.path + '.vue')
+        })
+         this.$router.addRoutes(this.routes)
+        this.results.push(item)
       })
       this.show = false
     })
