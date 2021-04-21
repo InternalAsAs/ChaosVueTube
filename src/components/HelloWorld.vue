@@ -46,7 +46,7 @@ export default {
     routes: [],
     path: '',
     show: true,
-    apiUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber'
+    apiUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber/'
   }),
   computed: {
     filteredResults: function () {
@@ -64,12 +64,14 @@ export default {
   mounted () {
     this.axios.get(this.apiUrl).then(response => {
       response.data.forEach(item => {
-        this.routes.push({
-          path: '/' + item.path,
-          component: () => import('@/views/' + item.path + '.vue')
-        })
-        this.$router.addRoutes(this.routes)
-        this.results.push(item)
+        if (item.open === 'TRUE') {
+          this.routes.push({
+            path: '/' + item.path,
+            component: () => import('@/views/' + item.path + '.vue')
+          })
+          this.$router.addRoutes(this.routes)
+          this.results.push(item)
+        }
       })
       this.show = false
     })

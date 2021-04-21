@@ -24,7 +24,7 @@ export default {
   data: () => ({
     results: [],
     tuber: [],
-    tuberUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber'
+    tuberUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber/?open=TRUE'
   }),
   mounted () {
     this.axios.get(this.tuberUrl + '?search={"path":' + '"' + this.path + '"' + '}').then(response => {
