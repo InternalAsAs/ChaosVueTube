@@ -24,7 +24,7 @@ export default {
   components: {
     Loading,
     Header,
-    HikakinMain: () => import('../components/Body/hikakintvmain')
+    HikakinMain: () => import('../components/Body/hikakintvmain.vue')
   }
 }
 </script>

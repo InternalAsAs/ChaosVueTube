@@ -24,7 +24,7 @@ export default {
   components: {
     Loading,
     Header,
-    EgaChannelMain: () => import('../components/Body/egachannelmain')
+    EgaChannelMain: () => import('../components/Body/egachannelmain.vue')
   }
 }
 </script>

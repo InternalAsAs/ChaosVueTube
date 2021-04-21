@@ -24,7 +24,7 @@ export default {
   components: {
     Loading,
     Header,
-    EvisJapMain: () => import('../components/Body/evisjapmain')
+    EvisJapMain: () => import('../components/Body/evisjapmain.vue')
   }
 }
 </script>

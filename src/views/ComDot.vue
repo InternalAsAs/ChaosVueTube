@@ -24,7 +24,7 @@ export default {
   components: {
     Loading,
     Header,
-    ComDotMain: () => import('../components/Body/comdotmain')
+    ComDotMain: () => import('../components/Body/comdotmain.vue')
   }
 }
 </script>

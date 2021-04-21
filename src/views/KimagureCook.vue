@@ -24,7 +24,7 @@ export default {
   components: {
     Loading,
     Header,
-    KimagureCookMain: () => import('../components/Body/kimagurecookmain')
+    KimagureCookMain: () => import('../components/Body/kimagurecookmain.vue')
   }
 }
 </script>

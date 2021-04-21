@@ -24,7 +24,7 @@ export default {
   components: {
     Loading,
     Header,
-    RiroHitoriMain: () => import('../components/Body/rirohitorimain')
+    RiroHitoriMain: () => import('../components/Body/rirohitorimain.vue')
   }
 }
 </script>

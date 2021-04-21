@@ -24,7 +24,7 @@ export default {
   components: {
     Loading,
     Header,
-    RaphaelMain: () => import('../components/Body/raphaelmain')
+    RaphaelMain: () => import('../components/Body/raphaelmain.vue')
   }
 }
 </script>

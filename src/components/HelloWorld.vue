@@ -62,16 +62,14 @@ export default {
     }
   },
   mounted () {
-    this.axios.get(this.apiUrl).then(response => {
+    this.axios.get(this.apiUrl + '?search={"open":"TRUE"}').then(response => {
       response.data.forEach(item => {
-        if(item.open === 'TRUE') {
-          this.routes.push({
-           path: '/' + item.path,
-            component: () => import('@/views/' + item.path + '.vue')
-          })
-          this.$router.addRoutes(this.routes)
-          this.results.push(item)
-        }
+        this.routes.push({
+          path: '/' + item.path,
+          component: () => import('@/views/' + item.path + '.vue')
+        })
+        this.$router.addRoutes(this.routes)
+        this.results.push(item)
       })
       this.show = false
     })

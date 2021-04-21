@@ -24,7 +24,7 @@ export default {
   components: {
     Loading,
     Header,
-    SUSURUTVMain: () => import('../components/Body/susurutvmain')
+    SUSURUTVMain: () => import('../components/Body/susurutvmain.vue')
   }
 }
 </script>
