@@ -48,19 +48,6 @@ export default {
     show: true,
     apiUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber'
   }),
-  computed: {
-    filteredResults: function () {
-      var apiResults = []
-      for (var i in this.results) {
-        var apiResult = this.results[i]
-        if (apiResult.name.indexOf(this.keyword) !== -1 ||
-            apiResult.path.indexOf(this.keyword.toLowerCase()) !== -1) {
-          apiResults.push(apiResult)
-        }
-      }
-      return apiResults
-    }
-  },
   mounted () {
     this.axios.get(this.apiUrl).then(response => {
       response.data.forEach(item => {
