@@ -53,9 +53,11 @@ export default {
       var apiResults = []
       for (var i in this.results) {
         var apiResult = this.results[i]
-        if (apiResult.name.indexOf(this.keyword) !== -1 ||
-            apiResult.path.indexOf(this.keyword.toLowerCase()) !== -1) {
-          apiResults.push(apiResult)
+        if (apiResult.name !== '' && apiResults.path !== '') {
+          if (apiResult.name.indexOf(this.keyword) !== -1 ||
+              apiResult.path.indexOf(this.keyword.toLowerCase()) !== -1) {
+            apiResults.push(apiResult)
+          }
         }
       }
       return apiResults
