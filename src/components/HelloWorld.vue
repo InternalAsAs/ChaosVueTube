@@ -61,7 +61,7 @@ export default {
       return apiResults
     }
   },
-  mounted () {
+  created () {
     this.axios.get(this.apiUrl + '?search={"open":"TRUE"}').then(response => {
       response.data.forEach(item => {
         this.routes.push({
