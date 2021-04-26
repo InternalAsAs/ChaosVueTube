@@ -1,8 +1,9 @@
+
 <template>
 <div>
   <Loading v-if="show"/>
   <Header :path="this.$route.query.path"/>
-  <OuchiMenTVMain/>
+  <ouchimentvmain/>
 </div>
 </template>
 
@@ -24,14 +25,14 @@ export default {
   components: {
     Loading,
     Header,
-    OuchiMenTVMain: () => import('../components/Body/ouchimentvmain.vue')
+    ouchimentvmain: () => import('../components/Body/ouchimentvmain.vue')
   }
 }
 </script>
 
 <style scoped>
 #main-pic {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>

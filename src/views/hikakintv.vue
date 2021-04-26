@@ -1,14 +1,15 @@
+
 <template>
 <div>
   <Loading v-if="show"/>
   <Header :path="this.$route.query.path"/>
-  <HikakinMain/>
+  <hikakintvmain/>
 </div>
 </template>
 
 <script>
-import Loading from '../components/Loading'
 import Header from '../components/Header'
+import Loading from '../components/Loading'
 
 export default {
   name: 'hikakintv',
@@ -24,14 +25,14 @@ export default {
   components: {
     Loading,
     Header,
-    HikakinMain: () => import('../components/Body/hikakintvmain.vue')
+    hikakintvmain: () => import('../components/Body/hikakintvmain.vue')
   }
 }
 </script>
 
 <style scoped>
 #main-pic {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>

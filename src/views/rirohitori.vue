@@ -1,8 +1,9 @@
+
 <template>
 <div>
   <Loading v-if="show"/>
   <Header :path="this.$route.query.path"/>
-  <RiroHitoriMain/>
+  <rirohitorimain/>
 </div>
 </template>
 
@@ -24,14 +25,14 @@ export default {
   components: {
     Loading,
     Header,
-    RiroHitoriMain: () => import('../components/Body/rirohitorimain.vue')
+    rirohitorimain: () => import('../components/Body/rirohitorimain.vue')
   }
 }
 </script>
 
 <style scoped>
 #main-pic {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>

@@ -1,8 +1,9 @@
+
 <template>
 <div>
   <Loading v-if="show"/>
   <Header :path="this.$route.query.path"/>
-  <EgaChannelMain/>
+  <egachannelmain/>
 </div>
 </template>
 
@@ -24,14 +25,14 @@ export default {
   components: {
     Loading,
     Header,
-    EgaChannelMain: () => import('../components/Body/egachannelmain.vue')
+    egachannelmain: () => import('../components/Body/egachannelmain.vue')
   }
 }
 </script>
 
 <style scoped>
 #main-pic {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>

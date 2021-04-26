@@ -1,8 +1,9 @@
+
 <template>
 <div>
   <Loading v-if="show"/>
   <Header :path="this.$route.query.path"/>
-  <EvisJapMain/>
+  <evisjapmain/>
 </div>
 </template>
 
@@ -24,14 +25,14 @@ export default {
   components: {
     Loading,
     Header,
-    EvisJapMain: () => import('../components/Body/evisjapmain.vue')
+    evisjapmain: () => import('../components/Body/evisjapmain.vue')
   }
 }
 </script>
 
 <style scoped>
 #main-pic {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>

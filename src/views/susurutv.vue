@@ -1,8 +1,9 @@
+
 <template>
 <div>
   <Loading v-if="show"/>
   <Header :path="this.$route.query.path"/>
-  <SUSURUTVMain/>
+  <susurutvmain/>
 </div>
 </template>
 
@@ -24,14 +25,14 @@ export default {
   components: {
     Loading,
     Header,
-    SUSURUTVMain: () => import('../components/Body/susurutvmain.vue')
+    susurutvmain: () => import('../components/Body/susurutvmain.vue')
   }
 }
 </script>
 
 <style scoped>
 #main-pic {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>
