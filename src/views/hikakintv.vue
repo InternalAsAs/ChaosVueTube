@@ -1,4 +1,3 @@
-
 <template>
 <div>
   <Loading v-if="show"/>
