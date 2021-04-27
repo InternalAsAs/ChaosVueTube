@@ -9,7 +9,7 @@
         </h1>
       </Header>
         <p style="color: white; font-size: smaller;">Welcome to chaostic YouTube！<br>チャンネル内平均再生回数と動画再生回数を相関させてサムネモザイク画を生成しています！</p>
-        <input id="search" type="text" placeholder="search" v-model="keyword" v-on:keyup.enter="submitText">
+        <input id="search" type="text" placeholder="search" v-model="keyword">
             <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
               <div v-for="m of filteredResults" :key="m.id" class="card-seed">
                   <div class="card-wrapper" v-if="m.open == 'TRUE'" style="margin: 10px;">
@@ -38,14 +38,14 @@
 </template>
 
 <script>
+import Vue from 'vue'
+
 export default {
   name: 'HelloWorld',
   data: () => ({
     keyword: '',
-    results: [],
-    routes: [],
-    path: '',
     show: true,
+    results: Vue.prototype.$results,
     apiUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber'
   }),
   computed: {
@@ -61,18 +61,13 @@ export default {
       return apiResults
     }
   },
-  created () {
-    this.axios.get(this.apiUrl + '?search={"open":"TRUE"}').then(response => {
-      response.data.forEach(item => {
-        this.routes.push({
-          path: '/' + item.path,
-          component: () => import('@/views/' + item.path + '.vue')
-        })
-        this.$router.addRoutes(this.routes)
-        this.results.push(item)
-      })
-      this.show = false
-    })
+  watch: {
+    filteredResults: {
+      deep: true,
+      handler: function (newVal) {
+        this.show = Vue.prototype.$show
+      }
+    }
   }
 }
 </script>

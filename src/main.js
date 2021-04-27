@@ -8,6 +8,8 @@ Vue.use(require('vue-script2'))
 
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
+Vue.prototype.$results = []
+Vue.prototype.$show = true
 
 new Vue({
   router,
