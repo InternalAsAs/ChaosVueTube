@@ -44,7 +44,7 @@ export default {
   name: 'HelloWorld',
   data: () => ({
     keyword: '',
-    show: true,
+    show: Vue.prototype.$show,
     results: Vue.prototype.$results,
     apiUrl: 'https://api.steinhq.com/v1/storages/606d4683f62b6004b3eb6824/YouTuber'
   }),
