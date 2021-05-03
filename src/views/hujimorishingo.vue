@@ -3,7 +3,7 @@
 <div>
   <Loading v-if="show"/>
   <Header :path="this.$route.query.path"/>
-  <hikakintvmain/>
+  <hujimorishingomain/>
 </div>
 </template>
 
@@ -12,7 +12,7 @@ import Header from '../components/Header'
 import Loading from '../components/Loading'
 
 export default {
-  name: 'hikakintv',
+  name: 'hujimorishingo',
   data: () => ({
     path: String,
     show: true
@@ -25,7 +25,7 @@ export default {
   components: {
     Loading,
     Header,
-    hikakintvmain: () => import('../components/Body/hikakintvmain.vue')
+    hujimorishingomain: () => import('../components/Body/hujimorishingomain.vue')
   }
 }
 </script>
